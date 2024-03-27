@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Employee.Org - profile</title>
+    <link rel="icon" href="businessman.png" type="image/png">
+    <link rel="stylesheet" href="css\bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        #tab-3+#v,
+        #tab-3+#w,
+        #tab-3+#x,
+        #tab-3+#y,
+        #tab-3+#z,
+        #tab-3 {
+            display: none;
+        }
+        #tab-4+#v,
+        #tab-4+#w,
+        #tab-4+#x,
+        #tab-4+#y,
+        #tab-4+#z,
+        #tab-4 {
+            display: none;
+        }
+        .dropdown-content {
+            display: none;
+            position: fixed;
+            background-color: #2a3e4e;;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            padding: 12px 16px;
+            z-index: 1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="fullscreen-bg">
+        <video loop muted autoplay class="fullscreen-bg_video" height="700px" width="1246px">
+            <source src="person_typing_fast (1080p).mp4" type="video/mp4">
+        </video>
+    </div>
+    <nav id="header" class="navbar navbar-expand-lg navbar-light shadow sticky-top p-0">
+        <a href="in1.html" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
+            <img src="Screenshot 2024-02-01 172726.png" height="50px">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="in1.html" class="nav-item nav-link" id="h">Home</a>
+                <a href="in2.html" class="nav-item nav-link" id="t">Testimonial</a>
+                <a href="in3.html" class="nav-item nav-link active" id="s">Profile</a>
+                <div class="dropdown">
+                    <input type="button" id="N">
+                    <div class="dropdown-content">
+                        <a href="index.html" onclick="user()">Signout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid bg-primary mb-5 wow fadeIn" data-wow-delay="0.1s" style="padding: 35px;">
+        <div class="container">
+            <div class="row g-2">
+                <div class="col-md-10">
+                    <div class="row g-2">
+                        <div class="col-md-4">
+                            <input type="text" class="form-control border-0" id="companyName"
+                                placeholder="Company Name" />
+                        </div>
+                        <div class="col-md-4">
+                            <select class="form-select border-0" id="categoryFilter">
+                                <option selected disabled>Category</option>
+                                <option value="Marketing">Marketing</option>
+                                <option value="Software">Software Development</option>
+                                <option value="Wordpress">Wordpress Development</option>
+                                <option value="Design">Design</option>
+                                <option value="Creative">Creative</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <select class="form-select border-0" id="locationFilter">
+                                <option selected disabled>Location</option>
+                                <option value="Chandigarh">Chandigarh</option>
+                                <option value="Gurugram">Gurugram</option>
+                                <option value="Noida">Noida</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <a class="btn btn-secondary px-lg-5 animated fadeIn" onclick="filter()">Search</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-xxl py-5">
+        <div class="container">
+            <h1 class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s" style="color: white;">Search results</h1>
+            <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.3s">
+                <ul class="nav nav-pills d-inline-flex justify-content-center border-bottom mb-5">
+                    <li class="nav-item">
+                        <a class="d-flex align-items-center text-start mx-3 ms-0 pb-3 active" data-bs-toggle="pill" href="#tab-1">
+                            <h6 class="mt-n1 mb-0" style="color: white;" onclick="document.getElementById('tab-3').style.display='none'; document.getElementById('tab-4').style.display='none'">Full Time</h6>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="d-flex align-items-center text-start mx-3 pb-3" data-bs-toggle="pill" href="#tab-2">
+                            <h6 class="mt-n1 mb-0" style="color: white;" onclick="document.getElementById('tab-3').style.display='none'; document.getElementById('tab-4').style.display='none'">Part Time</h6>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="d-flex align-items-center text-start mx-3 pb-3" data-bs-toggle="pill" href="#tab-3">
+                            <h6 class="mt-n1 mb-0" style="color: white;" onclick="show1()">Liked</h6>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="d-flex align-items-center text-start mx-3 me-0 pb-3" data-bs-toggle="pill" href="#tab-4">
+                            <h6 class="mt-n1 mb-0" style="color: white;" onclick="show2()">Applied</h6>
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div id="tab-1" class="tab-pane fade show p-0 active">
+                        <div class="job-item p-4 mb-4" id="v">
+                            <div class="row g-4">
+                                <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                    <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-1.jpg" alt=""
+                                        style="width: 80px; height: 80px;">
+                                    <div class="text-start ps-4">
+                                        <h2 class="mb-3">TechCOM</h2>
+                                        <h5 class="mb-3">Software Engineer</h5>
+                                        <p class="mb-3">Software</p>
+                                        <span class="text-truncate me-3"><i
+                                                class="fa fa-map-marker-alt text-primary me-2">Gurugram</i></span>
+                                        <span class="text-truncate me-3"><i
+                                                class="far fa-clock text-primary me-2"></i>Full Time</span>
+                                        <span class="text-truncate me-0"><i
+                                                class="far fa-money-bill-alt text-primary me-2"></i>$12LPA</span>
+                                    </div>
+                                </div>
+                                <div
+                                    class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                    <div class="d-flex mb-3">
+                                        <a class="btn btn-light btn-square me-3"><i
+                                                class="far fa-heart text-primary"></i></a>
+                                        <a class="btn btn-primary" href="">Apply Now</a>
+                                    </div>
+                                    <small class="text-truncate"><i
+                                            class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan,
+                                        2045</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job-item p-4 mb-4" id="w">
+                            <div class="row g-4">
+                                <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                    <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-2.jpg" alt=""
+                                        style="width: 80px; height: 80px;">
+                                    <div class="text-start ps-4">
+                                        <h2 class="mb-3">International Hearts</h2>
+                                        <h5 class="mb-3">Marketing Manager</h5>
+                                        <p class="mb-3">Marketing</p>
+                                        <span class="text-truncate me-3"><i
+                                                class="fa fa-map-marker-alt text-primary me-2">Noida</i></span>
+                                        <span class="text-truncate me-3"><i
+                                                class="far fa-clock text-primary me-2"></i>Full Time</span>
+                                        <span class="text-truncate me-0"><i
+                                                class="far fa-money-bill-alt text-primary me-2"></i>$45LPA</span>
+                                    </div>
+                                </div>
+                                <div
+                                    class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                    <div class="d-flex mb-3">
+                                        <a class="btn btn-light btn-square me-3"><i
+                                                class="far fa-heart text-primary"></i></a>
+                                        <a class="btn btn-primary" href="">Apply Now</a>
+                                    </div>
+                                    <small class="text-truncate"><i
+                                            class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan,
+                                        2045</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job-item p-4 mb-4" id="z">
+                            <div class="row g-4">
+                                <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                    <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-5.jpg" alt=""
+                                        style="width: 80px; height: 80px;">
+                                    <div class="text-start ps-4">
+                                        <h2 class="mb-3">Blue Phlare</h2>
+                                        <h5 class="mb-3">Wordpress Developer</h5>
+                                        <p class="mb-3">Wordpress</p>
+                                        <span class="text-truncate me-3"><i
+                                                class="fa fa-map-marker-alt text-primary me-2">Chandigarh</i></span>
+                                        <span class="text-truncate me-3"><i
+                                                class="far fa-clock text-primary me-2"></i>Full Time</span>
+                                        <span class="text-truncate me-0"><i
+                                                class="far fa-money-bill-alt text-primary me-2"></i>$30LPA</span>
+                                    </div>
+                                </div>
+                                <div
+                                    class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                    <div class="d-flex mb-3">
+                                        <a class="btn btn-light btn-square me-3"><i
+                                                class="far fa-heart text-primary"></i></a>
+                                        <a class="btn btn-primary" href="">Apply Now</a>
+                                    </div>
+                                    <small class="text-truncate"><i
+                                            class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan,
+                                        2045</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tab-2" class="tab-pane fade show p-0">
+                        <div class="job-item p-4 mb-4" id="x">
+                            <div class="row g-4">
+                                <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                    <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-3.jpg" alt=""
+                                        style="width: 80px; height: 80px;">
+                                    <div class="text-start ps-4">
+                                        <h2 class="mb-3">DATAXCHANGE</h2>
+                                        <h5 class="mb-3">Product Designer</h5>
+                                        <p class="mb-3">Design</p>
+                                        <span class="text-truncate me-3"><i
+                                                class="fa fa-map-marker-alt text-primary me-2">Gurugram</i></span>
+                                        <span class="text-truncate me-3"><i
+                                                class="far fa-clock text-primary me-2"></i>Part Time</span>
+                                        <span class="text-truncate me-0"><i
+                                                class="far fa-money-bill-alt text-primary me-2"></i>$15LPA</span>
+                                    </div>
+                                </div>
+                                <div
+                                    class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                    <div class="d-flex mb-3">
+                                        <a class="btn btn-light btn-square me-3"><i
+                                                class="far fa-heart text-primary"></i></a>
+                                        <a class="btn btn-primary" href="">Apply Now</a>
+                                    </div>
+                                    <small class="text-truncate"><i
+                                            class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan,
+                                        2045</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job-item p-4 mb-4" id="y">
+                            <div class="row g-4">
+                                <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                    <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-4.jpg" alt=""
+                                        style="width: 80px; height: 80px;">
+                                    <div class="text-start ps-4">
+                                        <h2 class="mb-3">Fusion Source</h2>
+                                        <h5 class="mb-3">Creative Director</h5>
+                                        <p class="mb-3">Creative</p>
+                                        <span class="text-truncate me-3"><i
+                                                class="fa fa-map-marker-alt text-primary me-2">Noida</i></span>
+                                        <span class="text-truncate me-3"><i
+                                                class="far fa-clock text-primary me-2"></i>Part Time</span>
+                                        <span class="text-truncate me-0"><i
+                                                class="far fa-money-bill-alt text-primary me-2"></i>$10LPA</span>
+                                    </div>
+                                </div>
+                                <div
+                                    class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                    <div class="d-flex mb-3">
+                                        <a class="btn btn-light btn-square me-3"><i
+                                                class="far fa-heart text-primary"></i></a>
+                                        <a class="btn btn-primary" href="">Apply Now</a>
+                                    </div>
+                                    <small class="text-truncate"><i
+                                            class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan,
+                                        2045</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tab-3" class="tab-pane fade show p-0">
+                        <div class="job-item p-4 mb-4" id="v" name="v">
+                            <div class="row g-4">
+                                <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                    <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-1.jpg" alt=""
+                                        style="width: 80px; height: 80px;">
+                                    <div class="text-start ps-4">
+                                        <h2 class="mb-3">TechCOM</h2>
+                                        <h5 class="mb-3">Software Engineer</h5>
+                                        <p class="mb-3">Software</p>
+                                        <span class="text-truncate me-3"><i
+                                                class="fa fa-map-marker-alt text-primary me-2">Gurugram</i></span>
+                                        <span class="text-truncate me-3"><i
+                                                class="far fa-clock text-primary me-2"></i>Full Time</span>
+                                        <span class="text-truncate me-0"><i
+                                                class="far fa-money-bill-alt text-primary me-2"></i>$12LPA</span>
+                                    </div>
+                                </div>
+                                <div
+                                    class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                    <div class="d-flex mb-3">
+                                        <a class="btn btn-light btn-square me-3"><i
+                                                class="far fa-heart text-primary"></i></a>
+                                        <a class="btn btn-primary" href="">Apply Now</a>
+                                    </div>
+                                    <small class="text-truncate"><i
+                                            class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan,
+                                        2045</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job-item p-4 mb-4" id="w" name="w">
+                            <div class="row g-4">
+                                <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                    <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-2.jpg" alt=""
+                                        style="width: 80px; height: 80px;">
+                                    <div class="text-start ps-4">
+                                        <h2 class="mb-3">International Hearts</h2>
+                                        <h5 class="mb-3">Marketing Manager</h5>
+                                        <p class="mb-3">Marketing</p>
+                                        <span class="text-truncate me-3"><i
+                                                class="fa fa-map-marker-alt text-primary me-2">Noida</i></span>
+                                        <span class="text-truncate me-3"><i
+                                                class="far fa-clock text-primary me-2"></i>Full Time</span>
+                                        <span class="text-truncate me-0"><i
+                                                class="far fa-money-bill-alt text-primary me-2"></i>$45LPA</span>
+                                    </div>
+                                </div>
+                                <div
+                                    class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                    <div class="d-flex mb-3">
+                                        <a class="btn btn-light btn-square me-3"><i
+                                                class="far fa-heart text-primary"></i></a>
+                                        <a class="btn btn-primary" href="">Apply Now</a>
+                                    </div>
+                                    <small class="text-truncate"><i
+                                            class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan,
+                                        2045</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job-item p-4 mb-4" id="x" name="x">
+                            <div class="row g-4">
+                                <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                    <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-3.jpg" alt=""
+                                        style="width: 80px; height: 80px;">
+                                    <div class="text-start ps-4">
+                                        <h2 class="mb-3">DATAXCHANGE</h2>
+                                        <h5 class="mb-3">Product Designer</h5>
+                                        <p class="mb-3">Design</p>
+                                        <span class="text-truncate me-3"><i
+                                                class="fa fa-map-marker-alt text-primary me-2">Gurugram</i></span>
+                                        <span class="text-truncate me-3"><i
+                                                class="far fa-clock text-primary me-2"></i>Part Time</span>
+                                        <span class="text-truncate me-0"><i
+                                                class="far fa-money-bill-alt text-primary me-2"></i>$15LPA</span>
+                                    </div>
+                                </div>
+                                <div
+                                    class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                    <div class="d-flex mb-3">
+                                        <a class="btn btn-light btn-square me-3"><i
+                                                class="far fa-heart text-primary"></i></a>
+                                        <a class="btn btn-primary" href="">Apply Now</a>
+                                    </div>
+                                    <small class="text-truncate"><i
+                                            class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan,
+                                        2045</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job-item p-4 mb-4" id="y" name="y">
+                            <div class="row g-4">
+                                <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                    <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-4.jpg" alt=""
+                                        style="width: 80px; height: 80px;">
+                                    <div class="text-start ps-4">
+                                        <h2 class="mb-3">Fusion Source</h2>
+                                        <h5 class="mb-3">Creative Director</h5>
+                                        <p class="mb-3">Creative</p>
+                                        <span class="text-truncate me-3"><i
+                                                class="fa fa-map-marker-alt text-primary me-2">Noida</i></span>
+                                        <span class="text-truncate me-3"><i
+                                                class="far fa-clock text-primary me-2"></i>Part Time</span>
+                                        <span class="text-truncate me-0"><i
+                                                class="far fa-money-bill-alt text-primary me-2"></i>$10LPA</span>
+                                    </div>
+                                </div>
+                                <div
+                                    class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                    <div class="d-flex mb-3">
+                                        <a class="btn btn-light btn-square me-3"><i
+                                                class="far fa-heart text-primary"></i></a>
+                                        <a class="btn btn-primary" href="">Apply Now</a>
+                                    </div>
+                                    <small class="text-truncate"><i
+                                            class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan,
+                                        2045</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job-item p-4 mb-4" id="z" name="z">
+                            <div class="row g-4">
+                                <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                    <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-5.jpg" alt=""
+                                        style="width: 80px; height: 80px;">
+                                    <div class="text-start ps-4">
+                                        <h2 class="mb-3">Blue Phlare</h2>
+                                        <h5 class="mb-3">Wordpress Developer</h5>
+                                        <p class="mb-3">Wordpress</p>
+                                        <span class="text-truncate me-3"><i
+                                                class="fa fa-map-marker-alt text-primary me-2">Chandigarh</i></span>
+                                        <span class="text-truncate me-3"><i
+                                                class="far fa-clock text-primary me-2"></i>Full Time</span>
+                                        <span class="text-truncate me-0"><i
+                                                class="far fa-money-bill-alt text-primary me-2"></i>$30LPA</span>
+                                    </div>
+                                </div>
+                                <div
+                                    class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                    <div class="d-flex mb-3">
+                                        <a class="btn btn-light btn-square me-3"><i
+                                                class="far fa-heart text-primary"></i></a>
+                                        <a class="btn btn-primary" href="">Apply Now</a>
+                                    </div>
+                                    <small class="text-truncate"><i
+                                            class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan,
+                                        2045</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tab-4" class="tab-pane fade show p-0">
+                        <div class="job-item p-4 mb-4" id="v" name="v">
+                            <div class="row g-4">
+                                <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                    <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-1.jpg" alt=""
+                                        style="width: 80px; height: 80px;">
+                                    <div class="text-start ps-4">
+                                        <h2 class="mb-3">TechCOM</h2>
+                                        <h5 class="mb-3">Software Engineer</h5>
+                                        <p class="mb-3">Software</p>
+                                        <span class="text-truncate me-3"><i
+                                                class="fa fa-map-marker-alt text-primary me-2">Gurugram</i></span>
+                                        <span class="text-truncate me-3"><i
+                                                class="far fa-clock text-primary me-2"></i>Full Time</span>
+                                        <span class="text-truncate me-0"><i
+                                                class="far fa-money-bill-alt text-primary me-2"></i>$12LPA</span>
+                                    </div>
+                                </div>
+                                <div
+                                    class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                    <div class="d-flex mb-3">
+                                        <a class="btn btn-light btn-square me-3"><i
+                                                class="far fa-heart text-primary"></i></a>
+                                        <a class="btn btn-primary" href="">Applied</a>
+                                    </div>
+                                    <small class="text-truncate"><i
+                                            class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan,
+                                        2045</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job-item p-4 mb-4" id="w" name="w">
+                            <div class="row g-4">
+                                <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                    <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-2.jpg" alt=""
+                                        style="width: 80px; height: 80px;">
+                                    <div class="text-start ps-4">
+                                        <h2 class="mb-3">International Hearts</h2>
+                                        <h5 class="mb-3">Marketing Manager</h5>
+                                        <p class="mb-3">Marketing</p>
+                                        <span class="text-truncate me-3"><i
+                                                class="fa fa-map-marker-alt text-primary me-2">Noida</i></span>
+                                        <span class="text-truncate me-3"><i
+                                                class="far fa-clock text-primary me-2"></i>Full Time</span>
+                                        <span class="text-truncate me-0"><i
+                                                class="far fa-money-bill-alt text-primary me-2"></i>$45LPA</span>
+                                    </div>
+                                </div>
+                                <div
+                                    class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                    <div class="d-flex mb-3">
+                                        <a class="btn btn-light btn-square me-3"><i
+                                                class="far fa-heart text-primary"></i></a>
+                                        <a class="btn btn-primary" href="">Applied</a>
+                                    </div>
+                                    <small class="text-truncate"><i
+                                            class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan,
+                                        2045</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job-item p-4 mb-4" id="x" name="x">
+                            <div class="row g-4">
+                                <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                    <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-3.jpg" alt=""
+                                        style="width: 80px; height: 80px;">
+                                    <div class="text-start ps-4">
+                                        <h2 class="mb-3">DATAXCHANGE</h2>
+                                        <h5 class="mb-3">Product Designer</h5>
+                                        <p class="mb-3">Design</p>
+                                        <span class="text-truncate me-3"><i
+                                                class="fa fa-map-marker-alt text-primary me-2">Gurugram</i></span>
+                                        <span class="text-truncate me-3"><i
+                                                class="far fa-clock text-primary me-2"></i>Part Time</span>
+                                        <span class="text-truncate me-0"><i
+                                                class="far fa-money-bill-alt text-primary me-2"></i>$15LPA</span>
+                                    </div>
+                                </div>
+                                <div
+                                    class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                    <div class="d-flex mb-3">
+                                        <a class="btn btn-light btn-square me-3"><i
+                                                class="far fa-heart text-primary"></i></a>
+                                        <a class="btn btn-primary" href="">Applied</a>
+                                    </div>
+                                    <small class="text-truncate"><i
+                                            class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan,
+                                        2045</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job-item p-4 mb-4" id="y" name="y">
+                            <div class="row g-4">
+                                <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                    <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-4.jpg" alt=""
+                                        style="width: 80px; height: 80px;">
+                                    <div class="text-start ps-4">
+                                        <h2 class="mb-3">Fusion Source</h2>
+                                        <h5 class="mb-3">Creative Director</h5>
+                                        <p class="mb-3">Creative</p>
+                                        <span class="text-truncate me-3"><i
+                                                class="fa fa-map-marker-alt text-primary me-2">Noida</i></span>
+                                        <span class="text-truncate me-3"><i
+                                                class="far fa-clock text-primary me-2"></i>Part Time</span>
+                                        <span class="text-truncate me-0"><i
+                                                class="far fa-money-bill-alt text-primary me-2"></i>$10LPA</span>
+                                    </div>
+                                </div>
+                                <div
+                                    class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                    <div class="d-flex mb-3">
+                                        <a class="btn btn-light btn-square me-3"><i
+                                                class="far fa-heart text-primary"></i></a>
+                                        <a class="btn btn-primary" href="">Applied</a>
+                                    </div>
+                                    <small class="text-truncate"><i
+                                            class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan,
+                                        2045</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job-item p-4 mb-4" id="z" name="z">
+                            <div class="row g-4">
+                                <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                    <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-5.jpg" alt=""
+                                        style="width: 80px; height: 80px;">
+                                    <div class="text-start ps-4">
+                                        <h2 class="mb-3">Blue Phlare</h2>
+                                        <h5 class="mb-3">Wordpress Developer</h5>
+                                        <p class="mb-3">Wordpress</p>
+                                        <span class="text-truncate me-3"><i
+                                                class="fa fa-map-marker-alt text-primary me-2">Chandigarh</i></span>
+                                        <span class="text-truncate me-3"><i
+                                                class="far fa-clock text-primary me-2"></i>Full Time</span>
+                                        <span class="text-truncate me-0"><i
+                                                class="far fa-money-bill-alt text-primary me-2"></i>$30LPA</span>
+                                    </div>
+                                </div>
+                                <div
+                                    class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                    <div class="d-flex mb-3">
+                                        <a class="btn btn-light btn-square me-3"><i
+                                                class="far fa-heart text-primary"></i></a>
+                                        <a class="btn btn-primary" href="">Applied</a>
+                                    </div>
+                                    <small class="text-truncate"><i
+                                            class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan,
+                                        2045</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s"
+        style="background-color: #2a3e4e;">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-white mb-4">Company</h5>
+                    <a class="btn btn-link text-white-50" href="">About Us</a>
+                    <a class="btn btn-link text-white-50" href="">Contact Us</a>
+                    <a class="btn btn-link text-white-50" href="">Our Services</a>
+                    <a class="btn btn-link text-white-50" href="">Privacy Policy</a>
+                    <a class="btn btn-link text-white-50" href="">Terms & Condition</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-white mb-4">Quick Links</h5>
+                    <a class="btn btn-link text-white-50" href="">About Us</a>
+                    <a class="btn btn-link text-white-50" href="">Contact Us</a>
+                    <a class="btn btn-link text-white-50" href="">Our Services</a>
+                    <a class="btn btn-link text-white-50" href="">Privacy Policy</a>
+                    <a class="btn btn-link text-white-50" href="">Terms & Condition</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-white mb-4">Contact</h5>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Bangalore, Karnataka, INDIA</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91991919191</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>employee.org@gmail.com</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom" href="#">Employee.Org</a>, All Right Reserved.
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <div class="footer-menu">
+                            <a href="">Home</a>
+                            <a href="">Cookies</a>
+                            <a href="">Help</a>
+                            <a href="">FQAs</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+</body>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="lib/wow/wow.min.js"></script>
+<script src="lib/easing/easing.min.js"></script>
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="js/main.js"></script>
+<script>
+    function filter() {
+        var input1, filter1, input2, filter2, input3, filter3, jobItems, companyNames, location, txtValue1, txtValue2, txtValue3;
+        input1 = document.getElementById('companyName');
+        filter1 = input1.value.toUpperCase();
+        input2 = document.getElementById('locationFilter');
+        filter2 = input2.value.toUpperCase();
+        input3 = document.getElementById('categoryFilter');
+        filter3 = input3.value.toUpperCase();
+        jobItems = document.getElementsByClassName('job-item');
+
+        for (var i = 0; i < jobItems.length; i++) {
+            companyNames = jobItems[i].querySelector(".text-start h2");
+            location = jobItems[i].querySelector(".text-start .fa-map-marker-alt");
+            category = jobItems[i].querySelector(".text-start p");
+
+            txtValue1 = companyNames.textContent || companyNames.innerText;
+            txtValue2 = location.textContent || location.innerText;
+            txtValue3 = category.textContent || category.innerText;
+
+            if (txtValue1.toUpperCase().indexOf(filter1) > -1 && txtValue2.toUpperCase().indexOf(filter2) > -1 && txtValue3.toUpperCase().indexOf(filter3) > -1) {
+                jobItems[i].style.display = "";
+            } else {
+                jobItems[i].style.display = "none";
+            }
+        }
+    }
+    var a1 = document.querySelectorAll("#tab-1 .job-item");
+    if (a1.length === 0) {
+        console.error("No elements found with class 'job-item'");
+    } else {
+        for (let i = 0; i < a1.length; i++) {
+            const heartIcon = a1[i].querySelector('.btn-square .fa-heart');
+            if (heartIcon) {
+                heartIcon.addEventListener("click", function () {
+                    const val = a1[i].getAttribute('id');
+                    if (val) {
+                        const localStorageMail = localStorage.getItem('mail');
+                        if (localStorageMail !== null) {
+                            const key = JSON.parse(localStorage.getItem(localStorageMail));
+                            if (key['saved'].includes(val)) {
+                                alert("Already Saved");
+                            }
+                            else {
+                                key['saved'] += val;
+                                let m = localStorageMail;
+                                const n = JSON.stringify(key);
+                                localStorage.setItem(m, n);
+                                alert("Notification liked successfully!!!");
+                            }
+                        } else {
+                            console.error("localStorage item 'mail' is null");
+                        }
+                    } else {
+                        console.error("Attribute 'id' not found on 'job-item' element");
+                    }
+                });
+            } else {
+                console.error("Heart icon not found within 'job-item' element");
+            }
+        }
+    }
+    var b1 = document.querySelectorAll("#tab-2 .job-item");
+    if (b1.length === 0) {
+        console.error("No elements found with class 'job-item'");
+    } else {
+        for (let i = 0; i < b1.length; i++) {
+            const heartIcon = b1[i].querySelector('.btn-square .fa-heart');
+            if (heartIcon) {
+                heartIcon.addEventListener("click", function () {
+                    const val = b1[i].getAttribute('id');
+                    if (val) {
+                        const localStorageMail = localStorage.getItem('mail');
+                        if (localStorageMail !== null) {
+                            const key = JSON.parse(localStorage.getItem(localStorageMail));
+                            if (key['saved'].includes(val)) {
+                                alert("Already Saved");
+                            }
+                            else {
+                                key['saved'] += val;
+                                let m = localStorageMail;
+                                const n = JSON.stringify(key);
+                                localStorage.setItem(m, n);
+                                alert("Notification liked successfully!!!");
+                            }
+                        } else {
+                            console.error("localStorage item 'mail' is null");
+                        }
+                    } else {
+                        console.error("Attribute 'id' not found on 'job-item' element");
+                    }
+                });
+            } else {
+                console.error("Heart icon not found within 'job-item' element");
+            }
+        }
+    }
+    var c = document.querySelectorAll("#tab-3 .job-item");
+    if (c.length === 0) {
+        console.error("No elements found with class 'job-item'");
+    } else {
+        for (let i = 0; i < c.length; i++) {
+            const heartIcon = c[i].querySelector('.btn-square .fa-heart');
+            if (heartIcon) {
+                heartIcon.addEventListener("click", function () {
+                    const val = c[i].getAttribute('id');
+                    if (val) {
+                        const localStorageMail = localStorage.getItem('mail');
+                        if (localStorageMail !== null) {
+                            const key = JSON.parse(localStorage.getItem(localStorageMail));
+                            var index = key['saved'].indexOf(val);
+                            key['saved'] = key['saved'].slice(0, index) + key['saved'].slice(index + 1);
+                            let m = localStorageMail;
+                            const n = JSON.stringify(key);
+                            localStorage.setItem(m, n);
+                            alert("Notification unliked successfully!!!");
+                        } else {
+                            console.error("localStorage item 'mail' is null");
+                        }
+                    } else {
+                        console.error("Attribute 'id' not found on 'job-item' element");
+                    }
+                });
+            } else {
+                console.error("Heart icon not found within 'job-item' element");
+            }
+        }
+    }
+    var a2 = document.querySelectorAll("#tab-1 .job-item");
+    if (a2.length === 0) {
+        console.error("No elements found with class 'job-item'");
+    } else {
+        for (let i = 0; i < a2.length; i++) {
+            const apply = a2[i].querySelector('.btn-primary');
+            if (apply) {
+                apply.addEventListener("click", function () {
+                    const val = a2[i].getAttribute('id');
+                    if (val) {
+                        const localStorageMail = localStorage.getItem('mail');
+                        if (localStorageMail !== null) {
+                            const key = JSON.parse(localStorage.getItem(localStorageMail));
+                            if (key['applied'].includes(val)) {
+                                alert("Already applied");
+                            }
+                            else {
+                                key['applied'] += val;
+                                let m = localStorageMail;
+                                const n = JSON.stringify(key);
+                                localStorage.setItem(m, n);
+                                alert("Notification applied successfully!!!");
+                            }
+                        } else {
+                            console.error("localStorage item 'mail' is null");
+                        }
+                    } else {
+                        console.error("Attribute 'id' not found on 'job-item' element");
+                    }
+                });
+            } else {
+                console.error("Heart icon not found within 'job-item' element");
+            }
+        }
+    }
+    var b2 = document.querySelectorAll("#tab-2 .job-item");
+    if (b2.length === 0) {
+        console.error("No elements found with class 'job-item'");
+    } else {
+        for (let i = 0; i < b2.length; i++) {
+            const apply = b2[i].querySelector('.btn-primary');
+            if (apply) {
+                apply.addEventListener("click", function () {
+                    const val = b2[i].getAttribute('id');
+                    if (val) {
+                        const localStorageMail = localStorage.getItem('mail');
+                        if (localStorageMail !== null) {
+                            const key = JSON.parse(localStorage.getItem(localStorageMail));
+                            if (key['applied'].includes(val)) {
+                                alert("Already applied");
+                            }
+                            else {
+                                key['applied'] += val;
+                                let m = localStorageMail;
+                                const n = JSON.stringify(key);
+                                localStorage.setItem(m, n);
+                                alert("Notification applied successfully!!!");
+                            }
+                        } else {
+                            console.error("localStorage item 'mail' is null");
+                        }
+                    } else {
+                        console.error("Attribute 'id' not found on 'job-item' element");
+                    }
+                });
+            } else {
+                console.error("Heart icon not found within 'job-item' element");
+            }
+        }
+    }
+    function show1() {
+        document.getElementById('tab-4').style.display="none";
+        var email = localStorage.getItem('mail');
+        if (email !== null) {
+            const key = JSON.parse(localStorage.getItem(email));
+            var save = key['saved'];
+            var tab3Visible = false;
+            c.forEach(function (element) {
+                const val = element.getAttribute('id');
+                if (save.includes(val)) {
+                    element.style.display = "block";
+                    tab3Visible = true;
+                } else {
+                    element.style.display = "none";
+                }
+            });
+            var tab3 = document.getElementById('tab-3');
+            tab3.style.display = tab3Visible ? "block" : "none";
+        } else {
+            console.error("localStorage item 'mail' is null");
+        }
+    }
+    var c = document.querySelectorAll("#tab-3 .job-item");
+    function show2() {
+        document.getElementById('tab-3').style.display="none";
+        var email = localStorage.getItem('mail');
+        if (email !== null) {
+            const key = JSON.parse(localStorage.getItem(email));
+            var apply = key['applied'];
+            var tab4Visible = false;
+            d.forEach(function (element) {
+                const val = element.getAttribute('id');
+                if (apply.includes(val)) {
+                    element.style.display = "block";
+                    tab4Visible = true;
+                } else {
+                    element.style.display = "none";
+                }
+            });
+            var tab4 = document.getElementById('tab-4');
+            tab4.style.display = tab4Visible ? "block" : "none";
+        } else {
+            console.error("localStorage item 'mail' is null");
+        }
+    }
+    var d = document.querySelectorAll("#tab-4 .job-item");
+    function user() {
+        localStorage.setItem('mail', null);
+        localStorage.setItem('name', null);
+    }
+    if (localStorage.getItem('mail')==="null" && localStorage.getItem('name')==="null") {
+        window.open('index.html', '_self');
+    } else {
+        var elem1 = document.getElementById("N");
+        if (elem1 !== null) {
+            elem1.value = localStorage.getItem("name")[0];
+        }
+        var elem2 = document.getElementById("O");
+        if (elem2 !== null) {
+            elem2.textContent = "Welcome " + localStorage.getItem("name") + ", to Employee.Org";
+        }
+    }
+</script>
+
+</html>
